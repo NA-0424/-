@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>正解！</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h2>おめでとう！植物を登録したよ！</h2>
+  <div id="cardArea"></div>
+  <button onclick="goBack()">図鑑に戻る</button>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const area = params.get("area");   
+    const name = params.get("name");   // 入力された植物名
+
+    // 名前に対応する画像を作成（名前をローマ字キーに変換する必要あり）
+    const plants = {
+      "肥後つばき": "higo",
+      "梅": "ume",
+      "ユキヤナギ": "yuki",
+      "ソシンロウバイ": "sin",
+      "コブシ": "kobusi",
+      "オガタマノキ":"ogata"
+    };
+
+    if (plants[name]) {
+      let imagePath = `images/${plants[name]}.png`;
+      document.getElementById("cardArea").innerHTML =
+        `<img src="${imagePath}" alt="${name}" style="width:100%; max-width:600px;">`;
+    } else {
+      document.getElementById("cardArea").textContent = "画像が見つかりませんでした。";
+    }
+
+    function goBack() {
+      window.location.href = `${area}.html`; // 例: zukan1.html に戻る
+    }
+  </script>
+</body>
+</html>

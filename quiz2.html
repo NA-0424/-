@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<link rel="stylesheet" href="css/quiz.css">
+<head>
+   <meta charset="UTF-8">
+   <title>植物クイズ2</title>
+</head>
+<body>
+   <h2 id="question"></h2>
+   <h3 id = "quizResult"></h3>
+   <div id="cardArea">
+   <img id = "picture" src= "" alt = "植物の写真" style="display: none;"></div>
+   <div id="choices"></div> <!--divで選択肢をグループ化-->
+   <h2 id="result"></h2>
+   <button id="start-btn" onclick="showQuestion()">クイズを始める</button>
+   <button id="next"onclick="nextQuestion()" style = "display: none;">次の問題に行く</button> <!--最初は非表示-->
+
+
+   <script>
+       let kiroku = [];
+       const quiz = [
+       {
+           question: "ラン",
+           choices: ["かくとう・はがね","あく","かくとう・あく","はがね・むし"],
+           answer: 0,
+           picture: "images/ran.png" //写真の名前
+       },
+       {
+           question: "シクラメン",
+           choices: ["かくとう","でんき","ノーマル"],
+           answer: 1,
+           picture: "images/sikura.png"
+       },
+       {
+           question: "ハナキリン",
+           choices: ["ドラゴン","フェアリー","でんき・ドラゴン","でんき・はがね"],
+           answer: 2,
+           picture: "images/hana.png"
+       },
+       {
+           question: "ポインセチア",
+           choices: ["ドラゴン","フェアリー","でんき・ドラゴン","でんき・はがね"],
+           answer: 2,
+           picture: "images/poin.png"
+       }
+       ];
+      
+       let index = 0;
+
+
+       //問題を表示
+       function showQuestion(){
+           document.getElementById("start-btn").style.display = "none";
+           document.getElementById("result").textContent = "";
+           document.getElementById("question").textContent = quiz[index].question;
+
+
+           const choicesDiv = document.getElementById("choices");
+           choicesDiv.innerHTML = "";
+
+
+           const pictureDiv = document.getElementById("picture");
+           pictureDiv.src  = quiz[index].picture;
+           pictureDiv.style.display = "block";
+
+
+           quiz[index].choices.forEach((sentaku,i) =>{
+               let btn = document.createElement("button");//選択肢ボタンを作る
+               btn.textContent = sentaku;
+               btn.onclick = () => checkAnswer(i);
+               choicesDiv.appendChild(btn);
+               btn.classList.add("choice-button");
+           });
+       }
+
+
+       //答え合わせ
+       function checkAnswer(selected){
+           let result = document.getElementById("result");//結果位置をresultに入れる
+           const buttons = document.querySelectorAll(".choice-button");
+
+
+           //選択肢の無効化
+           buttons.forEach(btn => btn.disabled = true);
+          
+           if (selected === quiz[index].answer){
+               localStorage.setItem("問題" + (index + 1), "true");
+               result.textContent = "正解！";
+               result.className = "correct";
+               kiroku.push = "正解";
+           }else{
+               localStorage.setItem("問題"+ (index + 1),"false")
+               result.textContent = "残念...";
+               result.className = "wrong";
+               kiroku.push = "不正解";
+           }
+           document.getElementById("next").style.display = "inline";
+           }
+          
+       function nextQuestion(){
+           index++;
+           //写真の無効化
+           document.getElementById("picture").style.display = "none";
+           document.getElementById("picture").src = "";
+          
+           if (index < quiz.length){
+               showQuestion();
+           }else{
+               document.getElementById("result").textContent = "";
+               document.getElementById("question").textContent = "クイズ終了";
+               document.getElementById("choices").innerHTML = "";
+               document.getElementById("next").style.display = "none";
+               showFinalResult();
+       }
+       }
+
+
+       function showFinalResult(){
+           let text = "";
+           for (let i = 1; i <= quiz.length; i++){
+               let correct = localStorage.getItem(`問題${i}`);
+                if (correct === "true"){
+               text += `問題${i}: 正解<br>`;
+               }else{
+               text += `問題${i}: 不正解<br>`;
+           }
+       }
+       document.getElementById("quizResult").innerHTML = text;
+       document.getElementById("quizResult").style.display = "block";
+       }
+       
+   </script>
+</body>
+</html>
+

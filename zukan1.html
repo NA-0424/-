@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<link rel = "stylesheet" href = "css/zukan1.css">
+<head>
+  <meta charset="UTF-8">
+  <title>植物図鑑</title>
+</head>
+<body>
+  <h1>大温室エリア</h1>
+
+  <!--入力欄 -->
+  <div>
+    <input type="text" id="plantInput" placeholder="植物名を入力">
+    <button id="searchBtn" onclick="searchplant()">登録！</button>
+  </div>
+  <p id="husei" style="color:red;"></p>
+
+  <!-- カード5枚（最初は裏面） -->
+  <div>
+    <img id="card1" class="card" src="images/kard0.png">
+    <img id="card2" class="card" src="images/kard0.png">
+    <img id="card3" class="card" src="images/kard0.png">
+    <img id="card4" class="card" src="images/kard0.png">
+    <img id="card5" class="card" src="images/kard0.png">
+  </div>
+
+
+  <!-- クイズボタン（最初は非表示） -->
+  <button id="quizBtn" style="display:none;" onclick="goQuiz()">クイズに挑戦！</button>
+  <button onclick="reset()">植物を燃やす</button>
+
+  <script>
+    // 図鑑1の植物
+    const plantList = {
+      "モクセンナ": { id: "card1", img: "moku.png" },
+      "ベニゲンペイカズラ": { id: "card2", img: "beni.png" },
+      "フイリソシンカ": { id: "card3", img: "huiri.png" },
+      "コエビソウ": { id: "card4", img: "koebi.png" },
+      "サンタンカ": { id: "card5", img: "santa.png" }
+    };
+
+    // カードの裏面
+    const defaultImage = "images/kard0.png";
+
+    // ページ読み込み時に保存データを反映
+    window.onload = function() {
+      let allFlipped = true;
+      //植物リストから名前（ローマ字）を抽出
+      for (let name in plantList) {
+        const cardId = plantList[name].id;//画像IDを取得
+        //zukan1nameがtrueかどうか
+        const saved = localStorage.getItem("zukan1-" + name);
+        if (saved === "true") {
+          document.getElementById(cardId).src = "images/" + plantList[name].img;
+        } else {
+          document.getElementById(cardId).src = defaultImage;
+          allFlipped = false;
+        }
+      }
+      // 全部揃ったらクイズ解放
+      if (allFlipped) {
+        document.getElementById("quizBtn").style.display = "inline-block";
+        alert("クイズに挑戦しよう！");
+      }
+    }
+
+    // ポケモン検索
+    function searchplant() {
+      const input = document.getElementById("plantInput").value.trim();//入力されたものを入れる
+      const plants = plantList[input];
+
+      if (plants) {
+        // localStorage に保存
+        localStorage.setItem("zukan1-" + input, "true");
+        // correct.html に飛ぶ
+        window.location.href = "correct1.html?area=zukan1&name=" + encodeURIComponent(input);
+      } else {
+        document.getElementById("husei").textContent = "その植物は存在しません";
+      }
+    }
+
+    // クイズに飛ぶ
+    function goQuiz() {
+      window.location.href = "quiz1.html";
+    }
+
+    //リセットボタン
+    function reset(){
+        if (confirm("最初からになりますがいいですか？")){
+            for (let i = 1; i < 6; i++ ){
+                const img = document.getElementById("card" + i);
+                img.src = defaultImage;
+                let allFlipped = false
+                document.getElementById("quizBtn").style.display = 'none';
+            }
+            localStorage.clear();//ローカルストレージを空にする
+            alert("植物を燃やしました");
+        }else{
+            alert("キャンセルしました");
+        }
+    }
+    
+  </script>
+  
+</body>
+</html>

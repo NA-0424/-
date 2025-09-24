@@ -1,0 +1,91 @@
+body {
+  font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+  background-color: #fdfdf8; /* 少し図鑑ぽい落ち着いた色 */
+  margin: 0;
+  padding: 40px 20px;
+  text-align: center; /* ← これで中央寄せ */
+}
+
+#cardArea img {
+  max-width: 350px;
+  height: auto;
+  margin: 20px auto;
+  display: block; /* ← 画像を中央に */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+
+#question {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#choices {
+  margin-top: 20px;
+}
+
+.choice-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.choice-button:hover {
+  background-color: #45a049;
+}
+
+#result.correct {
+  color: rgb(231, 25, 97);
+  font-weight: bold;
+}
+
+#result.wrong {
+  color: rgb(32, 139, 238);
+  font-weight: bold;
+}
+
+#next, #start-btn {
+  margin-top: 25px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background-color: #ffa726;
+  color: white;
+}
+
+#next:hover, #start-btn:hover {
+  background-color: #fb8c00;
+}
+
+#quizResult {
+  display:none;
+  font-family: "游ゴシック", "Hiragino Kaku Gothic ProN", sans-serif;
+  font-size: 1.2em;
+  line-height: 1.8;
+  padding: 20px;
+  margin: 20px auto;
+  width: 80%;
+  max-width: 500px;
+  border: 2px solid #4CAF50;
+  border-radius: 12px;
+  background: #f9fff9;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.correct{
+  color: rgb(231, 25, 97);
+  font-weight: bold;
+}
+.wrong{
+  color: rgb(32, 139, 238);
+  font-weight: bold;
+}

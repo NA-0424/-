@@ -1,0 +1,43 @@
+body {
+  font-family: "Yu Mincho", serif;
+  background: #fdfaf4;   /* 薄いクリーム色で図鑑っぽく */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;  /* 縦並び */
+  justify-content: center; /* 中央寄せ */
+  align-items: center;
+  min-height: 100vh;       /* 画面全体を基準に中央配置 */
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#cardArea img {
+  max-width: 80%;   /* 横幅の最大を画面の8割に */
+  max-height: 70vh; /* 高さは画面の7割に */
+  border: 3px solid #d4a373;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  background: #fff;
+  padding: 10px; /* 画像周囲に余白 */
+  margin-bottom: 30px; /* ボタンとの間に余白 */
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #d4a373;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: 0.2s;
+}
+
+button:hover {
+  background-color: #c58b5e;
+}
