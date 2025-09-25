@@ -37,6 +37,7 @@
         }
         ];
         
+        let keka = [];
         let index = 0;
 
         //問題を表示
@@ -77,10 +78,12 @@
                 localStorage.setItem("問題" + (index + 1), "true");
                 result.textContent = "正解！";
                 result.className = "correct";
+                keka.push("正解");
             }else{
                 localStorage.setItem("問題"+ (index + 1),"false")
                 result.textContent = "残念...";
                 result.className = "wrong";
+                keka.push("不正解");
             }
             document.getElementById("next").textContent = "次の問題に行く";
             document.getElementById("next").style.display = "inline";
@@ -122,7 +125,10 @@
         next.style.margin = "20px auto";
         next.style.display = "block";
         index = -1;
+
+        localStorage.setItem("eria2",JSON.stringify(keka));
         }
     </script>
 </body>
+
 </html>
