@@ -14,10 +14,15 @@
    <h2 id="result"></h2>
    <button id="start-btn" onclick="showQuestion()">クイズを始める</button>
    <button id="next"onclick="nextQuestion()" style = "display: none;">次の問題に行く</button> <!--最初は非表示-->
+   <button id="eria" onclick="location.href='index.html'" style="display: none">エリア選択に戻る</button>
 
 
    <script>
        let kiroku = [];
+       let saveData = {
+             name: "庭",   // エリアの名前
+             result: keka      // 結果の配列
+        };
        const quiz = [
        {
            question: "肥後つばき",
@@ -99,12 +104,12 @@
                localStorage.setItem("問題" + (index + 1), "true");
                result.textContent = "正解！";
                result.className = "correct";
-               kiroku.push = "正解";
+               keka.push("正解");
            }else{
                localStorage.setItem("問題"+ (index + 1),"false")
                result.textContent = "残念...";
                result.className = "wrong";
-               kiroku.push = "不正解";
+               keka.push("不正解");
            }
            document.getElementById("next").style.display = "inline";
            }
@@ -139,6 +144,13 @@
        }
        document.getElementById("quizResult").innerHTML = text;
        document.getElementById("quizResult").style.display = "block";
+       let next = document.getElementById("next")
+        next.textContent = "最初からやる";
+        next.style.display = "block";
+        next.style.margin = "20px auto";
+        index = -1;
+        document.getElementById("eria").style.display = "block";
+       let kirokuArray = localStorage.setItem("eria3",JSON.stringify(keka));
        }
        
    </script>
