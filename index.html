@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+<link rel="stylesheet" href="css/eria.css">
 <head>
     <meta charset = "UTF-8">
     <title>最初のページ</title>
@@ -8,14 +9,43 @@
     <button onclick = "location.href='zukan1.html'">大温室へ</button>
     <button onclick = "location.href='zukan2.html'">合同へ</button>
     <button onclick = "location.href='zukan3.html'">庭へ</button>
-    <style>
-        button{
-            width:100px;
-            height: auto;
-            background-color: rgb(148, 233, 148);
+    <button onclick = "result()">クイズ結果一覧を表示</button>
+    <h2 id="result"></h2>
+
+    <script>
+        let eriaName = ["","大温室","合同","庭"];
+        function result(){
+            let container = document.getElementById("result");
+            container.innerHTML = ""; // クリア
+
+            let table = document.createElement("table");
+            let header = `<tr><th>エリア</th><th>結果</th></tr>`;
+            table.innerHTML = header;
+
+            for (let i = 1; i < 4; i++){
+                let saved = localStorage.getItem("eria" + i);
+                let row = document.createElement("tr");
+                let cells = "";
+                if (saved) {
+                    let data = JSON.parse(saved);
+                    for(let j = 0; j < data.result.length; j++){
+                        if(j===0){
+                            cells += `<span class="${data.result[j] === "正解" ? "success" : "fail"}">${data.result[j]}</span>`;
+                        }else{
+                            cells += `<span class="${data.result[j] === "正解" ? "success" : "fail"}">,${data.result[j]}</span>`;
+                        }
+                    }
+                    row.innerHTML=`<td>${data.name}エリア</td><td>${cells}</td>`;
+                } else {
+                    row.innerHTML = `<td>${eriaName[i]}エリア</td><td class="empty">まだ未挑戦</td>`;
+                }
+
+            table.appendChild(row);
+            }
+
+            container.appendChild(table);
         }
-    </style>
+
+    </script>
 </body>
 </html>
-
-
