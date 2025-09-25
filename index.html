@@ -8,7 +8,6 @@
     <button onclick = "location.href='zukan1.html'">大温室へ</button>
     <button onclick = "location.href='zukan2.html'">合同へ</button>
     <button onclick = "location.href='zukan3.html'">庭へ</button>
-    <button onclick="result()">結果一覧を表示</button>
     <style>
         button{
             width:100px;
@@ -16,16 +15,7 @@
             background-color: rgb(148, 233, 148);
         }
     </style>
-    <script>
-    function result() {
-    let saved = localStorage.getItem("eria2");
-    if (saved) {
-        alert("hello")
-        } else {
-        alert("結果がありません");
-      }
-    }
-    </script>
 </body>
 </html>
+
 
