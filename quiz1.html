@@ -14,8 +14,14 @@
     <h2 id="result"></h2>
     <button id="start-btn" onclick="showQuestion()">クイズを始める</button>
     <button id="next"onclick="nextQuestion()" style = "display: none;"></button> <!--最初は非表示-->
+    <button id="eria" onclick="location.href='index.html'" style="display: none">エリア選択に戻る</button>
 
     <script>
+        let keka=[];
+        let saveData = {
+             name: "大温室",   // エリアの名前
+             result: keka      // 結果の配列
+        };
         const quiz = [
         {
             question: "モクセンナの花言葉は？",
@@ -37,7 +43,6 @@
         }
         ];
         
-        let keka = [];
         let index = 0;
 
         //問題を表示
@@ -119,16 +124,19 @@
         }
         document.getElementById("quizResult").innerHTML = text;
         document.getElementById("quizResult").style.display = "block";
+        //nextボタン作成
         let next = document.getElementById("next")
         next.textContent = "最初からやる";
         next.style.display = "block";
         next.style.margin = "20px auto";
         next.style.display = "block";
         index = -1;
-
-        localStorage.setItem("eria2",JSON.stringify(keka));
+        //エリアに戻るボタンの表示
+        document.getElementById("eria").style.display = "block";
+        //クイズ結果をファイル間で扱えるようにする
+        let kirokuArray = localStorage.setItem("eria1",JSON.stringify(saveData));
+        
         }
     </script>
 </body>
-
 </html>
