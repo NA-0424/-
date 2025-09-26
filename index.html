@@ -13,7 +13,6 @@
     <h2 id="result"></h2>
 
     <script>
-        let eriaName = ["","大温室","合同","庭"];
         function result(){
             let container = document.getElementById("result");
             container.innerHTML = ""; // クリア
@@ -29,7 +28,7 @@
                 if (saved) {
                     let data = JSON.parse(saved);
                     for(let j = 0; j < data.result.length; j++){
-                        if(j===0){
+                        if(j === 0){
                             cells += `<span class="${data.result[j] === "正解" ? "success" : "fail"}">${data.result[j]}</span>`;
                         }else{
                             cells += `<span class="${data.result[j] === "正解" ? "success" : "fail"}">,${data.result[j]}</span>`;
@@ -49,3 +48,4 @@
     </script>
 </body>
 </html>
+
