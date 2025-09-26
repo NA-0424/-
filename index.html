@@ -41,7 +41,7 @@
                 }
                 row.innerHTML = `<td>${data.name}エリア</td><td>${cells}</td>`;
                 } else {
-                row.innerHTML = `<td>${data.name}エリア</td><td class="empty">結果データが存在しません</td>`;
+                row.innerHTML = `<td>${eriaName[i]}エリア</td><td class="empty">まだ挑戦中</td>`;
                 }
             } else {
             row.innerHTML = `<td>${eriaName[i]}エリア</td><td class="empty">まだ未挑戦</td>`;
@@ -55,6 +55,7 @@
     </script>
 </body>
 </html>
+
 
 
 
