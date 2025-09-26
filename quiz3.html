@@ -137,9 +137,9 @@
            for (let i = 1; i <= quiz.length; i++){
                let correct = localStorage.getItem(`問題${i}`);
                if (correct === "true"){
-               text += `問題${i}: 正解<br>`;
+               text += `<p class = "correct">問題${i}: 正解<br></p>`;
                }else{
-               text += `問題${i}: 不正解<br>`;
+               text += `<p class = "wrong">問題${i}: 不正解<br></p>`;
            }
        }
        document.getElementById("quizResult").innerHTML = text;
@@ -156,5 +156,6 @@
    </script>
 </body>
 </html>
+
 
 
