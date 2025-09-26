@@ -14,6 +14,7 @@
 
     <script>
         let eriaName = ["","大温室","合同","庭"];
+        
         function result(){
             let container = document.getElementById("result");
             container.innerHTML = ""; // クリア
@@ -26,29 +27,34 @@
                 let saved = localStorage.getItem("eria" + i);
                 let row = document.createElement("tr");
                 let cells = "";
+
                 if (saved) {
                     let data = JSON.parse(saved);
-                    for(let j = 0; j < data.result.length; j++){
-                        if(j === 0){
-                            cells += `<span class="${data.result[j] === "正解" ? "success" : "fail"}">${data.result[j]}</span>`;
-                        }else{
-                            cells += `<span class="${data.result[j] === "正解" ? "success" : "fail"}">,${data.result[j]}</span>`;
-                        }
-                    }
-                    row.innerHTML=`<td>${data.name}エリア</td><td>${cells}</td>`;
-                } else {
-                    row.innerHTML = `<td>${eriaName[i]}エリア</td><td class="empty">まだ未挑戦</td>`;
-                }
 
-            table.appendChild(row);
+                    if (data.result && Array.isArray(data.result)) {
+                    for(let j = 0; j < data.result.length; j++){
+                    if(j === 0){
+                    cells += `<span class="${data.result[j] === "正解" ? "success" : "fail"}">${data.result[j]}</span>`;
+                    } else {
+                    cells += `<span class="${data.result[j] === "正解" ? "success" : "fail"}">,${data.result[j]}</span>`;
+                    }
+                }
+                row.innerHTML = `<td>${data.name}エリア</td><td>${cells}</td>`;
+                } else {
+                row.innerHTML = `<td>${data.name}エリア</td><td class="empty">結果データが存在しません</td>`;
+                }
+            } else {
+            row.innerHTML = `<td>${eriaName[i]}エリア</td><td class="empty">まだ未挑戦</td>`;
             }
 
-            container.appendChild(table);
+            table.appendChild(row);
         }
+    }
 
     </script>
 </body>
 </html>
+
 
 
 
