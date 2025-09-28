@@ -13,6 +13,25 @@ h1, h2 {
   padding-bottom: 5px;
 }
 
+#hinto{
+  background-color:#ecdebf;
+}
+#quiz{
+  background: #fcd303;
+  color: #039dfc;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 16px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#quiz:hover{
+  background: #fcba03;
+}
+
 /*クラスIDから取ってる*/
 .card {
   display: inline-block;
@@ -42,15 +61,6 @@ h1, h2 {
     height: 3em;
     background-color: rgba(0, 139, 253, 0.349);
 }
-/*クイズボタン*/
-#quizBtn {
-  background: #c49a3a; /* 金色っぽい */
-  font-weight: bold;
-}
-
-#quizBtn:hover{
-    background:#a8822f;
-}
 
 /*入力欄*/
 
@@ -76,26 +86,31 @@ button {
 button:hover {
   background: #588f5a;
 }
-
 /*ヒントの装飾*/
-.hinto {
+#hints {
   margin-top: 20px;
   padding: 15px;
-  background: #c7eda1;
-  border: 2px solid #4caf50; /* 緑色の枠線 */
+  background: #f0f8ff;
+  border: 2px solid #4caf50;
   border-radius: 10px;
 }
 
-.hinto h3 {
+#hints h3 {
   margin: 10px 0;
   font-size: 1.2em;
   color: #333;
 }
 
-
-
-
-
-
-
+#hintsBtn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #0caa5b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+#hintsBtn:hover {
+  background: #45a049;
+}
 
