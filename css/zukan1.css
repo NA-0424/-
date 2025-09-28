@@ -13,10 +13,6 @@ h1, h2 {
   padding-bottom: 5px;
 }
 
-#hinto{
-  background-color:#ecdebf;
-}
-
 /*クラスIDから取ってる*/
 .card {
   display: inline-block;
@@ -100,6 +96,7 @@ button:hover {
   color: #e67e22; /* 最初のヒントはオレンジ色で強調 */
   font-weight: bold;
 }
+
 
 
 
