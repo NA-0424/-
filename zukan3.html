@@ -29,12 +29,24 @@
    <img id="card7" class="card" src="images/kard0.png">
  </div>
 
+<button id="hintsBtn" onclick="hintsBtn()">ヒントを表示</button>
 
+<div id="hints" style="display:none;">
+  <h3>肥後つばき</h3>
+  <h3>梅</h3>
+  <h3>ソメイヨシノ</h3>
+  <h3>ユキヤナギ</h3>
+  <h3>ソシンロウバイ</h3>
+  <h3>コブシ</h3>
+  <h3>オガタマノキ</h3>
+</div>
 
 
  <!-- クイズボタン（最初は非表示） -->
- <button id="quizBtn" style="display:none;" onclick="goQuiz()">クイズに挑戦！</button>
- <button onclick="reset()">カードをすべて裏返す</button>
+<div id="quizBtn" sytle="display:none;">
+  <button id="quiz" onclick="goQuiz()">クイズに挑戦！</button>
+  <button onclick="reset()">カードをすべて裏返す</button>
+</div>
 
 
  <script>
@@ -115,6 +127,18 @@
            alert("キャンセルしました");
        }
    }
+
+   function hintsBtn(){
+      const hint = document.getElementById("hints");
+      const hintBtn = document.getElementById("hintsBtn");
+      if(hint.style.display === "none"){
+        hint.style.display = "block";
+        hintBtn.textContent = "ヒントを非表示";
+      }else{
+        hint.style.display = "none";
+        hintBtn.textContent = "ヒントを表示";
+      }
+    }
   
  </script>
  </body>
