@@ -80,3 +80,25 @@ button {
 button:hover {
   background: #588f5a;
 }
+
+/*ヒントの装飾*/
+.hints {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f0f8ff;  /* 薄い青で背景をつける */
+  border: 2px solid #4caf50; /* 緑色の枠線 */
+  border-radius: 10px;
+}
+
+.hints h3 {
+  margin: 10px 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.hints h3:first-child {
+  color: #e67e22; /* 最初のヒントはオレンジ色で強調 */
+  font-weight: bold;
+}
+
+
