@@ -24,10 +24,23 @@
     <img id="card5" class="card" src="images/kard0.png">
   </div>
 
+  <button id="hintsBtn" onclick="hintsBtn()">ヒントを表示</button>
+
+  <div id="hints" style="display: none;">
+    <h3>実際はヒントを記入</h3>
+    <h3>モクセンナ</h3>
+    <h3>ベニゲンペイカズラ</h3>
+    <h3>フイリソシンカ</h3>
+    <h3>コエビソウ</h3>
+    <h3>サンタンカ</h3>
+  </div>
+
 
   <!-- クイズボタン（最初は非表示） -->
-  <button id="quizBtn" style="display:none;" onclick="goQuiz()">クイズに挑戦！</button>
-  <button onclick="reset()">植物を燃やす</button>
+  <div id="quizBtn" style="display:none;">
+    <button id="quiz" onclick="goQuiz()">クイズに挑戦！</button>
+    <button onclick="reset()">植物を燃やす</button>
+  </div>
 
   <script>
     // 図鑑1の植物
@@ -64,7 +77,7 @@
       }
     }
 
-    //植物たんさく
+    // ポケモン検索
     function searchplant() {
       const input = document.getElementById("plantInput").value.trim();//入力されたものを入れる
       const plants = plantList[input];
@@ -90,7 +103,7 @@
             for (let i = 1; i < 6; i++ ){
                 const img = document.getElementById("card" + i);
                 img.src = defaultImage;
-                let allFlipped = false
+                let allFlipped = false;
                 document.getElementById("quizBtn").style.display = 'none';
             }
             localStorage.clear();//ローカルストレージを空にする
@@ -100,8 +113,18 @@
         }
     }
     
+    function hintsBtn(){
+      const hint = document.getElementById("hints");
+      const hintBtn = document.getElementById("hintsBtn");
+      if(hint.style.display === "none"){
+        hint.style.display = "block";
+        hintBtn.textContent = "ヒントを非表示";
+      }else{
+        hint.style.display = "none";
+        hintBtn.textContent = "ヒントを表示";
+      }
+    }
   </script>
   
 </body>
-
 </html>
