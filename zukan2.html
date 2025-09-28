@@ -25,18 +25,21 @@
    <img id="card4" class="card" src="images/kard0.png">
  </div>
 
+  <button id="hintsBtn" onclick="hintsBtn()">ヒントを表示</button>
 
+  <div id="hints" style="display: none;">
+    <h3>ラン</h3>
+    <h3>シクラメン</h3>
+    <h3>ハナキリン</h3>
+    <h3>ポインセチア</h3>
+  </div>
 
+<!-- クイズボタン（最初は非表示） -->
+  <div id="quizBtn"style="display:none;">
+    <button id="quizBtn" onclick="goQuiz()">クイズに挑戦！</button>
+    <button onclick="reset()">カードをすべて裏返す</button>
+  </div>
 
- <!-- クイズボタン（最初は非表示） -->
- <button id="quizBtn" style="display:none;" onclick="goQuiz()">クイズに挑戦！</button>
- <button onclick="reset()">カードをすべて裏返す</button>
- 
-  <div class="hinto">
-    <h3>ヒント1：滝の横にある黄色い花だよ</h3>
-    <h3>ヒント2</h3>
-    <h3>ヒント3</h3>
- </div>
  <script>
    // 図鑑2の植物
    const plantList = {
@@ -112,10 +115,19 @@
            alert("キャンセルしました");
        }
    }
+
+   function hintsBtn(){
+      const hint = document.getElementById("hints");
+      const hintBtn = document.getElementById("hintsBtn");
+      if(hint.style.display === "none"){
+        hint.style.display = "block";
+        hintBtn.textContent = "ヒントを非表示";
+      }else{
+        hint.style.display = "none";
+        hintBtn.textContent = "ヒントを表示";
+      }
+    }
   
  </script>
  </body>
 </html>
-
-
-
