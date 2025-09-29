@@ -86,6 +86,19 @@
        document.getElementById("quizBtn").style.display = "inline-block";
        alert("クイズに挑戦しよう！");
      }
+
+     //ヒントを表示するかの分岐処理
+      const hint = document.getElementById("hints");
+      const hintBtn = document.getElementById("hintsBtn");
+      let hintID = localStorage.getItem("zukan3-hint");
+      
+      if(hintID === "true"){
+        hint.style.display = "block";
+        hintBtn.textContent = "ヒントを非表示";
+      }else{
+        hint.style.display = "none";
+        hintBtn.textContent = "ヒントを表示";
+      }
    }
 
 
@@ -134,13 +147,14 @@
       if(hint.style.display === "none"){
         hint.style.display = "block";
         hintBtn.textContent = "ヒントを非表示";
+        localStorage.setItem("zukan3-hint","true");
       }else{
         hint.style.display = "none";
         hintBtn.textContent = "ヒントを表示";
+        localStorage.setItem("zukan3-hint","false");
       }
     }
   
  </script>
  </body>
 </html>
-
