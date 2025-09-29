@@ -26,7 +26,7 @@
 
   <button id="hintsBtn" onclick="hintsBtn()">ヒントを表示</button>
 
-  <div id="hints" style="display: none;">
+  <div id="hints" style="display:none;">
     <h3>実際はヒントを記入</h3>
     <h3>モクセンナ</h3>
     <h3>ベニゲンペイカズラ</h3>
@@ -75,6 +75,19 @@
         document.getElementById("quizBtn").style.display = "inline-block";
         alert("クイズに挑戦しよう！");
       }
+
+      //ヒントを表示するかの分岐処理
+      const hint = document.getElementById("hints");
+      const hintBtn = document.getElementById("hintsBtn");
+      let hintID = localStorage.getItem("zukan1-hint");
+      
+      if(hintID === "true"){
+        hint.style.display = "block";
+        hintBtn.textContent = "ヒントを非表示";
+      }else{
+        hint.style.display = "none";
+        hintBtn.textContent = "ヒントを表示";
+      }
     }
 
     // ポケモン検索
@@ -119,9 +132,11 @@
       if(hint.style.display === "none"){
         hint.style.display = "block";
         hintBtn.textContent = "ヒントを非表示";
+        localStorage.setItem("zukan1-hint","true");
       }else{
         hint.style.display = "none";
         hintBtn.textContent = "ヒントを表示";
+        localStorage.setItem("zukan1-hint","false");
       }
     }
   </script>
