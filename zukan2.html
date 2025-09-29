@@ -27,7 +27,7 @@
 
   <button id="hintsBtn" onclick="hintsBtn()">ヒントを表示</button>
 
-  <div id="hints" style="display: none;">
+  <div id="hints" style="display:none;">
     <h3>ラン</h3>
     <h3>シクラメン</h3>
     <h3>ハナキリン</h3>
@@ -74,6 +74,18 @@
        document.getElementById("quizBtn").style.display = "inline-block";
        alert("クイズに挑戦しよう！");
      }
+
+    const hint = document.getElementById("hints");
+    const hintBtn = document.getElementById("hintsBtn");
+    let hintID = localStorage.getItem("zukan2-hint");
+
+    if(hintID === "true"){
+      hint.style.display = "block";
+      hintBtn.textContent = "ヒントを非表示"
+    }else{
+      hint.style.display = "none";
+      hintBtn.textContent = "ヒントを表示"
+    }
    }
 
 
@@ -122,13 +134,14 @@
       if(hint.style.display === "none"){
         hint.style.display = "block";
         hintBtn.textContent = "ヒントを非表示";
+        localStorage.setItem("zukan2-hint","true");
       }else{
         hint.style.display = "none";
         hintBtn.textContent = "ヒントを表示";
+        localStorage.setItem("zukan2-hint","false");
       }
     }
   
  </script>
  </body>
 </html>
-
