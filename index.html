@@ -1,63 +1,64 @@
 <!DOCTYPE html>
 <html lang="ja">
-<link rel="stylesheet" href="css/eria.css">
 <head>
-    <meta charset = "UTF-8">
-    <title>最初のページ</title>
+    <meta charset="UTF-8">
+    <title>冒険が始まる！</title>
+    <meta name="viewport" content="width=device-width", initial-scale="1">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css"><!--最初に書く-->
+    <!--フォントの設定-->
+    <link rel="preconnect" href="https://fonts.googleapits.com">
+    <link rel="perconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap" rel="stylesheet">
+    <!--オリジナルcss-->
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    <button onclick = "location.href='zukan1.html'">大温室へ</button>
-    <button onclick = "location.href='zukan2.html'">合同へ</button>
-    <button onclick = "location.href='zukan3.html'">庭へ</button>
-    <button onclick = "result()">クイズ結果一覧を表示</button>
-    <h2 id="result"></h2>
+    <div class="cover cover-home">
+    <header class="page-header wrapper">
+        <h1 class="align-center">
+            <img class="logo" src="images/rogo.png" alt="ロゴ">
+        </h1>
+        <nav>
+            <ul class="main-nav">
+                <li><a href="explain.html">ゲームの説明</a></li>
+                <li><a href="eria.html">ゲーム開始</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h2 class="page-title">植物の面白さを知る旅へ、さあ行こう！</h2>
+    </div>
 
-    <script>
-        let eriaName = ["","大温室","合同","庭"];
-        
-        function result(){
-            let container = document.getElementById("result");
-            container.innerHTML = ""; // クリア
-
-            let table = document.createElement("table");
-            let header = `<tr><th>エリア</th><th>結果</th></tr>`;
-            table.innerHTML = header;
-
-            for (let i = 1; i < 4; i++){
-                let saved = localStorage.getItem("eria" + i);
-                let row = document.createElement("tr");
-                let cells = "";
-
-                if (saved) {
-                    let data = JSON.parse(saved);
-
-                    if (data.result && Array.isArray(data.result)) {
-                    for(let j = 0; j < data.result.length; j++){
-                    if(j === 0){
-                    cells += `<span class="${data.result[j] === "正解" ? "success" : "fail"}">${data.result[j]}</span>`;
-                    } else {
-                    cells += `<span class="${data.result[j] === "正解" ? "success" : "fail"}">,${data.result[j]}</span>`;
-                    }
-                }
-                row.innerHTML = `<td>${data.name}エリア</td><td>${cells}</td>`;
-                } else {
-                row.innerHTML = `<td>${eriaName[i]}エリア</td><td class="empty">まだ挑戦中</td>`;
-                }
-            } else {
-            row.innerHTML = `<td>${eriaName[i]}エリア</td><td class="empty">まだ未挑戦</td>`;
-            }
-
-            table.appendChild(row);
-        }
-            container.appendChild(table);
-    }
-
-    </script>
+    <section class="about">
+        <h3 class="heading-large">アプリについて</h3>
+        <p>
+            このアプリは動植物園には動物や乗り物以外にも「植物」という面白いものがあるということを皆さんに知ってもらうために制作しています。
+            小さなお子さんから高齢者の方まで楽しめるように工夫しました。ただ眺めるだけでなく、植物について楽しく学んでもらえるように
+            豆知識や「そんなこともあるんだ！」といった驚きを提供できるよう励みました。
+            ぜひ植物園を楽しみ、植物の世界を探求してみてください。
+        </p>
+        <div class="align-center">
+            <a class="btn"href="explain.html">説明を見る</a>
+        </div>
+    </section>
+    <footer class="page-footer">
+        <h3 class="heading-large">Information</h3>
+        <table class="info">
+            <tr>
+                <th>住所</th>
+                <td>熊本市....</td>
+            </tr>
+            <tr>
+                <th>電話</th>
+                <td>0120-555-333</td>
+            </tr>
+            <tr>
+                <th>営業時間</th>
+                <td>10:00~20:00</td>
+            </tr>
+        </table>
+        <div class="copyright">
+            <small>&copy; 2025 熊本市動植物園</small>
+        </div>
+    </footer>
 </body>
 </html>
-
-
-
-
-
-
