@@ -1,5 +1,13 @@
+*{
+  box-sizeing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 1px solid red;
+}
+
 html, body {
   width: 100%;
+  max-width: 100%;
   margin: 0;
   padding: 0;
   overflow-x: hidden; /* 横スクロールを無効化 */
@@ -32,6 +40,10 @@ nav{
     padding: 0;
     display: flex;
     gap: 1.5rem;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    width: 100%
+    overflow-x: hidden;
 }
 .items a{
     text-decoration: none;
