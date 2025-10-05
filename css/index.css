@@ -2,7 +2,6 @@
   box-sizeing: border-box;
   margin: 0;
   padding: 0;
-  outline: 1px solid red;
 }
 
 html, body {
@@ -129,23 +128,42 @@ nav{
 }
 /*スマホ版*/
 @media (max-width: 600px){
-    body{
-        overflow-x: hidden;
+    html,body{
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
     }
     #page-header{
-        aspect-ratio: 16 / 6;
+        width:100%;
+        max-width: 100%;
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+        overflow: hidden;
     }
     nav{
+        display: flex;
         justify-content: center;
         padding: 0.5rem 0;
         width: 100%;
         box-sizing: border-box;
     }
     .navigation{
+        display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        align-items: center;
         gap: 1rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
         width: 100%;
+        box-sizing: border-box;
+    }
+    .navigation li{
+      flex-shrink: 0;
     }
     .navigation a{
         font-size: 0.9rem;
@@ -153,8 +171,9 @@ nav{
     .title{
         font-size: 1.4rem;
         line-height: 130%;
-        margin-top: 2rem;
+        margin-top: 1rem;
         text-align: center;
         width: 100%;
+        box-sizing: border-box;
     }
 }
