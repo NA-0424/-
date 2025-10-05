@@ -64,6 +64,17 @@ nav{
 .btn:hover{
     background-color: #0090aa;
 }
+.btnB{
+    display: inline-block;
+    font-size: 1.5rem;
+    background-color: rgb(74, 191, 171);
+    color: #f6da21;
+    border-radius: 8px; /*角を丸める*/
+    padding: .75rem 1.5rem;
+}
+.btnB:hover{
+    background-color: #237651;
+}
 .align-center{
     text-align: center;
 }
