@@ -1,114 +1,73 @@
-@charset "UTF-8";
-
-/*共通部分*/
-html{
-    font-size: 100%;
-}
-body{
-    line-height: 1.7;
-    color: #432;
-}
-img{
-    max-width: 80%;
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* 横スクロールを無効化 */
+  box-sizing: border-box;
 }
 
-/*レイアウト*/
-.wrapper{
-    max-width: 1120px;
-    margin: auto;
+
+/*ヘッダー*/
+/*ヘッダーの写真*/
+#page-header{
+    background-image: url(../images/back.png);
+    background-size: cover;
+    background-position: center bottom;
+    height: 200px;
+}
+/*最初のメニュー部分*/
+nav{
+    display: flex;
+    justify-content: flex-end;/*右寄せ*/
+    padding-right: 1rem; 
+}
+.navigation{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+.items a{
+    text-decoration: none;
+    color: rgb(68, 51, 34);
+}
+.items a:hover{
+    color: rgb(221, 37, 0);
+}
+
+/*タイトル*/
+.title{
+    color:black;
+    line-height: 120%;
+    font-size: 2rem;
+    margin-top: 1rem;
+
+}
+/*メイン部分*/
+#about{
+    max-width: 736px;
     padding: 0 1.5rem;
+    margin: 3rem auto 4rem; /*上・左右・下の余白指定*/
 }
-.align-center{
-    text-align: center;
+#about p{
+    margin-bottom: 3rem;
 }
-
-/*ボタン*/
 .btn{
     display: inline-block;
     font-size: 1.5rem;
     background-color: #0bd;
     color: #fff;
-    border-radius: 8px;
+    border-radius: 8px; /*角を丸める*/
     padding: .75rem 1.5rem;
-    transition: .5s;
 }
 .btn:hover{
     background-color: #0090aa;
 }
-
-/*見出し*/
-.page-title,
-.heading-large{
-    font-size: 3rem;
+.align-center{
     text-align: center;
 }
-.page-title{
-    margin-top: 2rem;
-    line-height: 1.8;
-    writing-mode: vertical-rl;
-    margin: 0; 
-
-}
-.heading-large{
-    margin-bottom: 1rem;
-}
-
-/*ヘッダー*/
-.page-heder{
-    padding-top: .5rem;
-    scale: 1.2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    height: 100%;
-    text-align:center;
-    position: relative;
-}
-.logo{
-    width: 210px;
-}
-.main-nav{
-    position: absolute;
-    right: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    font-size: 1.5rem;
-    list-style: none;
-    padding: 0;
-}
-.main-nav a{
-    color: #432;
-}
-.main-nav a:hover{
-    color: rgb(63, 4, 242);
-}
-.cover{
-    background-size: cover;
-    background-position: center bottom;
-    height: 800px;
-}
-.cover-home{
-    background-image: url("../images/back.png");
-    display: flex;
-}
-.about{
-    max-width: 736px;
-    padding: 0 1.5rem;
-    margin: 3rem auto 4rem;
-}
-.about p{
-    margin-bottom: 3rem;
-}
-
 /*フッター*/
-.page-footer{
-    background-image: url(../images/fot.png);
-    background-size: cover;
-    background-position: center;
-    padding-top: 12rem;
-}
 .info{
     width: 100%;
     max-width: 544px;
@@ -116,17 +75,22 @@ img{
     padding: 0 1.5rem;
     border-spacing: 0;
 }
-.info th,
-.info td{
-    border-bottom: 1px solid #c9c2bc
-}
 .info th{
     text-align: left;
-    font-weight: normal;
     padding: 1rem;
 }
 .info td{
     padding: 1rem 0;
+}
+.info th,
+.info td{
+    border-bottom: 1px solid #c9c2bc;
+}
+.page-footer{
+    background-image: url(../images/fot.png);
+    background-size: cover;
+    background-position: center;
+    padding-top: 4rem;
 }
 .copyright{
     background-color: #432;
@@ -135,44 +99,15 @@ img{
     margin-top: 6rem;
     color: #fff;
 }
-/*デスクトップ版*/
-@media (min-width: 800px){
-    /*見出し*/
-    .page-title{
-        font-size: 5rem;
+/*スマホ版*/
+@media (max-width: 600px){
+    body{
+        overflow-x: hidden;
     }
-    .heading-large{
-        font-size: 4rem;
+    #page-header{
+        aspect-ratio: 16 / 6;
     }
-
-    /*ヘッダー*/
-    .page-header{
-        display: flex;
-        justify-content: space-between;
-        padding-top: 1.5rem;
-    }
-    .main-nav{
-        font-size: 2rem;
-    }
-    /*HOME*/
-    .info th{
-        padding-left: 2.5rem;
+    nav{
+        overflow: visible;
     }
 }
-
-/*スマホ用*/
-@media(max-width: 799px){
-    .page-header{
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-    }
-    .main-nav{
-        position: static;
-        justify-content: center;
-    }
-    .page-title{
-        margin-top: 2rem;
-    }
-}
-    
