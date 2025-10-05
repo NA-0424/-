@@ -2,6 +2,7 @@ html, body {
   width: 100%;
   margin: 0;
   padding: 0;
+  overflow-x: hidden; /* 横スクロールを無効化 */
   box-sizing: border-box;
 }
 
@@ -107,6 +108,21 @@ nav{
         aspect-ratio: 16 / 6;
     }
     nav{
-        overflow: visible;
+        justify-content: center;
+        padding-right: 0;
+        padding-top: 0.5rem;
+    }
+    .navigation{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    .navigation a{
+        font-size: 0.9rem;
+    }
+    .title{
+        font-size: 1.4rem;
+        line-height: 130%;
+        margin-top: 2rem;
     }
 }
