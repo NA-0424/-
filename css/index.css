@@ -5,7 +5,9 @@ html, body {
   overflow-x: hidden; /* 横スクロールを無効化 */
   box-sizing: border-box;
 }
-
+body{
+    position: relative;
+}
 
 /*ヘッダー*/
 /*ヘッダーの写真*/
@@ -14,12 +16,15 @@ html, body {
     background-size: cover;
     background-position: center bottom;
     height: 200px;
+    overflow: hidden;
 }
 /*最初のメニュー部分*/
 nav{
     display: flex;
     justify-content: flex-end;/*右寄せ*/
     padding-right: 1rem; 
+    box-sizing: border-box;
+    width: 100%;
 }
 .navigation{
     list-style: none;
@@ -120,13 +125,15 @@ nav{
     }
     nav{
         justify-content: center;
-        padding-right: 0;
-        padding-top: 0.5rem;
+        padding: 0.5rem 0;
+        width: 100%;
+        box-sizing: border-box;
     }
     .navigation{
         flex-wrap: wrap;
         justify-content: center;
         gap: 1rem;
+        width: 100%;
     }
     .navigation a{
         font-size: 0.9rem;
@@ -135,5 +142,7 @@ nav{
         font-size: 1.4rem;
         line-height: 130%;
         margin-top: 2rem;
+        text-align: center;
+        width: 100%;
     }
 }
