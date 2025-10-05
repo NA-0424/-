@@ -169,11 +169,12 @@ nav{
         font-size: 0.9rem;
     }
     .title{
-        font-size: 1.4rem;
-        line-height: 130%;
+        font-size: 1rem;
+        line-height: 1.4;
         margin-top: 1rem;
         text-align: center;
         width: 100%;
         box-sizing: border-box;
+        margin: 0.5rem 0;
     }
 }
