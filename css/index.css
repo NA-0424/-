@@ -11,6 +11,7 @@ body{
 img{
     max-width: 80%;
 }
+
 /*レイアウト*/
 .wrapper{
     max-width: 1120px;
@@ -21,19 +22,6 @@ img{
     text-align: center;
 }
 
-/*見出し*/
-.page-title,
-.heading-large{
-    font-size: 3rem;
-    text-align: center;
-}
-.page-title{
-    margin-top: 2rem;
-    line-height: 1.4;
-}
-.heading-large{
-    margin-bottom: 1rem;
-}
 /*ボタン*/
 .btn{
     display: inline-block;
@@ -47,20 +35,48 @@ img{
 .btn:hover{
     background-color: #0090aa;
 }
+
+/*見出し*/
+.page-title,
+.heading-large{
+    font-size: 3rem;
+    text-align: center;
+}
+.page-title{
+    margin-top: 2rem;
+    line-height: 1.8;
+    writing-mode: vertical-rl;
+    margin: 0; 
+
+}
+.heading-large{
+    margin-bottom: 1rem;
+}
+
 /*ヘッダー*/
 .page-heder{
     padding-top: .5rem;
     scale: 1.2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    height: 100%;
+    text-align:center;
+    position: relative;
 }
 .logo{
     width: 210px;
 }
 .main-nav{
+    position: absolute;
+    right: 20px;
     display: flex;
     justify-content: center;
-    gap: 2.5rem;
+    gap: 1.5rem;
     font-size: 1.5rem;
     list-style: none;
+    padding: 0;
 }
 .main-nav a{
     color: #432;
@@ -71,10 +87,11 @@ img{
 .cover{
     background-size: cover;
     background-position: center bottom;
-    height: 600px;
+    height: 800px;
 }
 .cover-home{
     background-image: url("../images/back.png");
+    display: flex;
 }
 .about{
     max-width: 736px;
@@ -142,3 +159,20 @@ img{
         padding-left: 2.5rem;
     }
 }
+
+/*スマホ用*/
+@media(max-width: 799px){
+    .page-header{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .main-nav{
+        position: static;
+        justify-content: center;
+    }
+    .page-title{
+        margin-top: 2rem;
+    }
+}
+    
