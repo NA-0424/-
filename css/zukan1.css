@@ -113,4 +113,53 @@ button:hover {
 #hintsBtn:hover {
   background: #45a049;
 }
+/*スマホ用画面レイアウト*/
+@media (max-width: 600px) {
+  /* 入力欄とボタンを大きく＆中央寄せ */
+  #plantInput {
+    width: 70%;
+    font-size: 1.3rem;
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+  }
+  #quizBtn,
+  #searchBtn {
+    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+    margin-top: 0.8rem;
+    border-radius: 10px;
+  }
+
+  /* 植物カードを小さめに */
+  .card {
+    width: 30%;
+    max-width: 100px;
+    margin: 5px;
+  }
+
+  /* カードの並び（中央寄せ） */
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* ヒント部分を見やすく */
+  #hint {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    display: inline-block;
+    text-align: center;
+  }
+
+  /* 画面下の余白を減らす */
+  body {
+    padding-bottom: 2rem;
+  }
+}
+
 
