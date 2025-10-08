@@ -29,8 +29,6 @@
     <img id="card5" class="card" src="images/kard0.png">
   </div>
 
-  <button id="hintsBtn" onclick="hintsBtn()">ヒントを表示</button>
-
   <div id="hints" style="display:none;">
     <h3>実際はヒントを記入</h3>
     <h3>モクセンナ</h3>
@@ -46,8 +44,17 @@
     <button id="quiz" onclick="goQuiz()">クイズに挑戦！</button>
     <button onclick="reset()">植物を燃やす</button>
   </div>
-
+  <!--今からjQueryを使うよという合図-->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script>
+    //ヒントの記入
+    const hints= [
+      {hint:"モクセンナ"},
+      {hint: "ベニゲンペイカズラ"},
+      {hint: "フイリソシンカ"},
+      {hint: "コエビソウ"},
+      {hint: "サンタンカ"}
+    ];
     // 図鑑1の植物
     const plantList = {
       "モクセンナ": { id: "card1", img: "moku.png" },
@@ -79,19 +86,6 @@
       if (allFlipped) {
         document.getElementById("quizBtn").style.display = "inline-block";
         alert("クイズに挑戦しよう！");
-      }
-
-      //ヒントを表示するかの分岐処理
-      const hint = document.getElementById("hints");
-      const hintBtn = document.getElementById("hintsBtn");
-      let hintID = localStorage.getItem("zukan1-hint");
-      
-      if(hintID === "true"){
-        hint.style.display = "block";
-        hintBtn.textContent = "ヒントを非表示";
-      }else{
-        hint.style.display = "none";
-        hintBtn.textContent = "ヒントを表示";
       }
     }
 
@@ -130,24 +124,29 @@
             alert("キャンセルしました");
         }
     }
+    $(document).ready(function(){
+    $('#card1').on('click',function(){
+      $('#hint').text(hints[0].hint);
+    });
+    $('#card2').on('click',function(){
+      $('#hint').text(hints[1].hint);
+    });
+    $('#card3').on('click',function(){
+      $('#hint').text(hints[2].hint);
+    });
+    $('#card4').on('click',function(){
+      $('#hint').text(hints[3].hint);
+    });
+    $('#card5').on('click',function(){
+      $('#hint').text(hints[4].hint);
+    });
+  });
     
-    function hintsBtn(){
-      const hint = document.getElementById("hints");
-      const hintBtn = document.getElementById("hintsBtn");
-      if(hint.style.display === "none"){
-        hint.style.display = "block";
-        hintBtn.textContent = "ヒントを非表示";
-        localStorage.setItem("zukan1-hint","true");
-      }else{
-        hint.style.display = "none";
-        hintBtn.textContent = "ヒントを表示";
-        localStorage.setItem("zukan1-hint","false");
-      }
-    }
   </script>
   
 </body>
 </html>
+
 
 
 
