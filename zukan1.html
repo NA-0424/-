@@ -4,12 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>植物図鑑</title>
-  
-    <!--フォントの設定-->
-    <link rel="preconnect" href="https://fonts.googleapits.com">
-    <link rel="perconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
   <h1>大温室エリア</h1>
@@ -36,7 +31,7 @@
     <button id="quiz" onclick="goQuiz()">クイズに挑戦！</button>
     <button onclick="reset()">植物を燃やす</button>
   </div>
-  <!--今からjQueryを使うよという合図-->
+
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script>
     //ヒントの記入
@@ -116,33 +111,50 @@
             alert("キャンセルしました");
         }
     }
+
     $(document).ready(function(){
     $('#card1').on('click',function(){
-      $('#hint').text(hints[0].hint);
+      $('#hint')
+      .text(hints[0].hint)  // ヒント内容をセット
+      .removeClass('show')      // 一旦リセット（連続クリック対応）
+      .hide()                   // 一瞬非表示にして
+      .fadeIn(200)              // ふわっと表示
+      .addClass('show');        // スタイル反映
     });
     $('#card2').on('click',function(){
-      $('#hint').text(hints[1].hint);
+      $('#hint')
+      .text(hints[1].hint)  
+      .removeClass('show')      
+      .hide()                   
+      .fadeIn(200)              
+      .addClass('show');
     });
     $('#card3').on('click',function(){
-      $('#hint').text(hints[2].hint);
+      $('#hint')
+      .text(hints[2].hint)  
+      .removeClass('show')      
+      .hide()                  
+      .fadeIn(200)              
+      .addClass('show');
     });
     $('#card4').on('click',function(){
-      $('#hint').text(hints[3].hint);
+      $('#hint')
+      .text(hints[3].hint)  
+      .removeClass('show')      
+      .hide()                   
+      .fadeIn(200)              
+      .addClass('show');
     });
     $('#card5').on('click',function(){
-      $('#hint').text(hints[4].hint);
+      $('#hint')
+      .text(hints[4].hint)  
+      .removeClass('show')     
+      .hide()                   
+      .fadeIn(200)             
+      .addClass('show');
     });
   });
   </script>
   
 </body>
 </html>
-
-
-
-
-
-
-
-
-
