@@ -13,9 +13,6 @@ h1, h2 {
   padding-bottom: 5px;
 }
 
-#hinto{
-  background-color:#ecdebf;
-}
 #quiz{
   background: #fcd303;
   color: #039dfc;
@@ -87,32 +84,26 @@ button:hover {
   background: #588f5a;
 }
 /*ヒントの装飾*/
-#hints {
-  margin-top: 20px;
-  padding: 15px;
-  background: #f0f8ff;
-  border: 2px solid #4caf50;
-  border-radius: 10px;
-}
-
-#hints h3 {
-  margin: 10px 0;
-  font-size: 1.2em;
+#hint {
+  opacity: 0; /*めっちゃ透明*/
+  transform: translateY(10px);/*y軸を少しずらして見えないようにする*/
+  transition: opacity 0.5s ease, transform 0.5s ease; /*透明度の変化*/
+  font-size: 1.2rem;
+  background: #b9aa87;
   color: #333;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 1rem;
 }
 
-#hintsBtn {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background: #0caa5b;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+/* 表示状態 */
+#hint.show {
+  opacity: 1;/*透明度を解除（通常）*/
+  transform: translateY(0);
 }
-#hintsBtn:hover {
-  background: #45a049;
-}
+
+
 /*スマホ用画面レイアウト*/
 @media (max-width: 600px) {
   /* 入力欄とボタンを大きく＆中央寄せ */
@@ -145,23 +136,8 @@ button:hover {
     justify-content: center;
   }
 
-  /* ヒント部分を見やすく */
-  #hint {
-    margin-top: 1rem;
-    font-size: 1.1rem;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 0.7rem 1rem;
-    border-radius: 8px;
-    display: inline-block;
-    text-align: center;
-  }
-
   /* 画面下の余白を減らす */
   body {
     padding-bottom: 2rem;
   }
 }
-
-
-
-
