@@ -62,7 +62,7 @@ nav{
 }
 /*メイン部分*/
 #about{
-    max-width: 736px;
+    max-width: 750px;
     padding: 0 1.5rem;
     margin: 3rem auto 4rem; /*上・左右・下の余白指定*/
 }
