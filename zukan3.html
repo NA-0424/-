@@ -33,28 +33,24 @@
    <img id="card6" class="card" src="images/kard0.png">
    <img id="card7" class="card" src="images/kard0.png">
  </div>
-
-<button id="hintsBtn" onclick="hintsBtn()">ヒントを表示</button>
-
-<div id="hints" style="display:none;">
-  <h3>肥後つばき</h3>
-  <h3>梅</h3>
-  <h3>ソメイヨシノ</h3>
-  <h3>ユキヤナギ</h3>
-  <h3>ソシンロウバイ</h3>
-  <h3>コブシ</h3>
-  <h3>オガタマノキ</h3>
-</div>
-
-
+ 
  <!-- クイズボタン（最初は非表示） -->
 <div id="quizBtn" style="display:none;">
   <button id="quiz" onclick="goQuiz()">クイズに挑戦！</button>
   <button onclick="reset()">カードをすべて裏返す</button>
 </div>
 
-
+ <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
  <script>
+   const hints= [
+      {hint:"肥後つばき"},
+      {hint: "梅"},
+      {hint: "ソメイヨシノ"},
+      {hint: "ユキヤナギ"},
+      {hint: "ソシンロウバイ"},
+      {hint: "コブシ"},
+      {hint: "オガタマノキ"}
+    ];
    // 図鑑3の植物
    const plantList = {
      "肥後つばき": { id: "card1", img: "higo.png" },
@@ -96,14 +92,6 @@
       const hint = document.getElementById("hints");
       const hintBtn = document.getElementById("hintsBtn");
       let hintID = localStorage.getItem("zukan3-hint");
-      
-      if(hintID === "true"){
-        hint.style.display = "block";
-        hintBtn.textContent = "ヒントを非表示";
-      }else{
-        hint.style.display = "none";
-        hintBtn.textContent = "ヒントを表示";
-      }
    }
 
 
@@ -146,22 +134,68 @@
        }
    }
 
-   function hintsBtn(){
-      const hint = document.getElementById("hints");
-      const hintBtn = document.getElementById("hintsBtn");
-      if(hint.style.display === "none"){
-        hint.style.display = "block";
-        hintBtn.textContent = "ヒントを非表示";
-        localStorage.setItem("zukan3-hint","true");
-      }else{
-        hint.style.display = "none";
-        hintBtn.textContent = "ヒントを表示";
-        localStorage.setItem("zukan3-hint","false");
-      }
-    }
-  
+  $(document).ready(function(){
+    $('#card1').on('click',function(){
+      $('#hint')
+      .text(hints[0].hint)  // ヒント内容をセット
+      .removeClass('show')      // 一旦リセット（連続クリック対応）
+      .hide()                   // 一瞬非表示にして
+      .fadeIn(200)              // ふわっと表示
+      .addClass('show');        // スタイル反映
+    });
+    $('#card2').on('click',function(){
+      $('#hint')
+      .text(hints[1].hint)  
+      .removeClass('show')      
+      .hide()                   
+      .fadeIn(200)              
+      .addClass('show');
+    });
+    $('#card3').on('click',function(){
+      $('#hint')
+      .text(hints[2].hint)  
+      .removeClass('show')      
+      .hide()                  
+      .fadeIn(200)              
+      .addClass('show');
+    });
+    $('#card4').on('click',function(){
+      $('#hint')
+      .text(hints[3].hint)  
+      .removeClass('show')      
+      .hide()                   
+      .fadeIn(200)              
+      .addClass('show');
+    });
+    $('#card5').on('click',function(){
+      $('#hint')
+      .text(hints[4].hint)  
+      .removeClass('show')     
+      .hide()                   
+      .fadeIn(200)             
+      .addClass('show');
+    });
+   $('#card6').on('click',function(){
+      $('#hint')
+      .text(hints[5].hint)  
+      .removeClass('show')     
+      .hide()                   
+      .fadeIn(200)             
+      .addClass('show');
+    });
+   $('#card7').on('click',function(){
+      $('#hint')
+      .text(hints[6].hint)  
+      .removeClass('show')     
+      .hide()                   
+      .fadeIn(200)             
+      .addClass('show');
+    });
+  });
+
  </script>
  </body>
 </html>
+
 
 
