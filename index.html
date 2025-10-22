@@ -83,8 +83,16 @@
             <small>&copy; 2025 熊本市動植物園</small>
         </div>
     </footer>
+    <script>
+        document.querySelectorAll('.nav_list a').forEach(link => {
+        link.addEventListener('click', () => {
+        document.getElementById('aikon').checked = false;
+            });
+        });
+    </script>
 </body>
 </html>
+
 
 
 
