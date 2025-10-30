@@ -67,7 +67,10 @@
             }
         }
         if(flag === 0){
-            window.open('ome.html', '_blank');
+            var result = wondow.confirm("クリア画面に移行しますか？")
+            if(result === "true"){
+                window.open('ome.html', '_blank');
+            }
         }
         }
     
