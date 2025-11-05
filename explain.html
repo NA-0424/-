@@ -1,0 +1,132 @@
+
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ゲームの遊び方</title>
+<style>
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: #f3e6d3;
+  margin: 0;
+  padding: 0;
+}
+
+/* タイトル */
+header {
+  background: #eec290;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+
+/* ステップ全体 */
+.rule-step {
+  background: white;
+  width: 85%;
+  margin: 20px auto;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(214, 158, 111, 0.1);
+  padding: 20px;
+}
+
+/* 画像 */
+.rule-step img {
+  display: block;
+  margin: 10px auto;
+  width: 70%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+/* クリックで拡大中の状態 */
+.rule-step img.enlarged {
+  transform: scale(1.6);
+  z-index: 999;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+/* テキスト */
+.rule-step p {
+  text-align: center;
+  line-height: 1.6;
+  font-size: 16px;
+  color:#444;
+}
+
+.orange {
+  color: #f7b77c;
+  font-weight: bold;
+}
+
+/* フッター */
+footer button {
+  background: #f7b77c;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 30px;
+  font-size: 18px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+  transition: 0.3s;
+}
+footer button:hover {
+  background: #f3a85b;
+}
+</style>
+</head>
+
+<body>
+<header>〜 ゲームの遊び方 〜</header>
+
+<main>
+  <section class="rule-step">
+    <h2><span class="orange">〜１〜　ボタンを押そう</span></h2>
+    <img src="gazou/botan.png" alt="ボタン" class="clickable-image">
+    <p>ゲームのボタンをクリックしてスタート！</p>
+  </section>
+
+  <section class="rule-step">
+    <h2><span class="orange">〜２〜　エリアを選ぼう</span></h2>
+    <img src="gazou/tizu.jpg" alt="地図" class="clickable-image">
+    <p>遊びたいエリアを選択しよう<br>（大温室・合同室など）</p>
+  </section>
+
+  <section class="rule-step">
+    <h2><span class="orange">〜３〜　クイズに挑戦！</span></h2>
+    <img src="gazou/daionsitu.png" alt="温室" class="clickable-image">
+    <p>カードをすべて開くとクイズが登場！<br>図鑑を参考にして答えよう！</p>
+  </section>
+</main>
+
+<center>
+<footer>
+  <a href="eria.html"><button>ゲームスタート</button></a>
+</footer>
+</center>
+
+<script>
+// 全クリック対象の画像を取得
+const images = document.querySelectorAll('.clickable-image');
+
+// クリックイベント設定
+images.forEach(img => {
+  img.addEventListener('click', function() {
+    // すでに拡大されている場合は元に戻す
+    if (this.classList.contains('enlarged')) {
+      this.classList.remove('enlarged');
+    } else {
+      // 他の画像の拡大を解除
+      images.forEach(i => i.classList.remove('enlarged'));
+      // この画像を拡大
+      this.classList.add('enlarged');
+    }
+  });
+});
+</script>
+</body>
+</html>
+
