@@ -23,7 +23,7 @@
  <h2 id="hint"></h2>
 
 
- <!-- カード5枚（最初は裏面） -->
+ <!-- カード（最初は裏面） -->
  <div>
    <img id="card1" class="card" src="images/kard0.png">
    <img id="card2" class="card" src="images/kard0.png">
@@ -122,7 +122,7 @@
    //リセットボタン
    function reset(){
        if (confirm("最初からになりますがいいですか？")){
-           for (let i = 1; i < 6; i++ ){
+           for (let i = 1; i < 8; i++ ){
                const img = document.getElementById("card" + i);
                img.src = defaultImage;
                let allFlipped = false
@@ -197,6 +197,7 @@
  </script>
  </body>
 </html>
+
 
 
 
