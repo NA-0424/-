@@ -147,6 +147,9 @@ nav{
         font-size: 5vw;
         line-height: 1.4;
     }
+  　h1{
+    color: rgb(255, 255, 255);
+　　}
 
     /* ページヘッダーの調整（画像などが中央に来るように） */
     #page-header {
