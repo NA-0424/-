@@ -17,6 +17,9 @@ body{
 }
 
 /*ヘッダー*/
+h1{
+    color: rgb(255, 255, 255);
+}
 /*ヘッダーの写真*/
 #page-header{
     background-image: url(../images/back.jpg);
