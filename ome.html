@@ -66,13 +66,49 @@
 </head>
 <body>
 
-
+<h1>🎉おめでとう！🎉</h1>
+<p>3問すべて正解しました！</p>
 <div class="celebration">
- <h1>🎉おめでとう！🎉</h1>
- <p>3問すべて正解しました！</p>
+<div id="result"></div>
 </div><br>
 <button onclick="location.href='index.html'" class="btn">ホームへ</button>
 <script>
+  let eriaName = ["","大温室","合同","庭"];
+  let container = document.getElementById("result");
+  container.innerHTML = ""; // クリア
+
+  let table = document.createElement("table");
+  let header = `<tr><th>エリア</th><th>結果</th></tr>`;
+  table.innerHTML = header;
+
+  for (let i = 1; i < 4; i++){
+   let saved = localStorage.getItem("eria" + i);
+   let row = document.createElement("tr");
+   let cells = "";
+
+   if (saved) {
+       let data = JSON.parse(saved);
+
+       if (data.result && Array.isArray(data.result)) {
+          for(let j = 0; j < data.result.length; j++){
+          if(j === 0){
+              cells += `<span class="${data.result[j] === "正解" ? "success" : "fail"}">${data.result[j]}</span>`;
+          } else {
+              cells += `<span class="${data.result[j] === "正解" ? "success" : "fail"}">,${data.result[j]}</span>`;
+          }
+          }
+          row.innerHTML = `<td>${data.name}エリア</td><td>${cells}</td>`;
+          } else {
+          row.innerHTML = `<td>${eriaName[i]}エリア</td><td class="empty">まだ挑戦中</td>`;
+          }
+       } else {
+       row.innerHTML = `<td>${eriaName[i]}エリア</td><td class="empty">まだ未挑戦</td>`;
+       }
+
+       table.appendChild(row);
+     }
+       container.appendChild(table);
+
  // 紙吹雪を作る
  for (let i = 0; i < 80; i++) {
    const confetti = document.createElement("div");
