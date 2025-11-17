@@ -36,11 +36,11 @@
   <script>
     //ヒントの記入
     const hints= [
-      {hint:"モクセンナ"},
-      {hint: "ベニゲンペイカズラ"},
-      {hint: "フイリソシンカ"},
-      {hint: "コエビソウ"},
-      {hint: "サンタンカ"}
+      {hint:"🌳✕千（〇〇◯◯な）"},
+      {hint: "花の形が白いお家の中から赤いちょうちんが出ているよう！（〇〇◯◯〇〇カズラ）"},
+      {hint: "シンカが名前に付く植物だよ（〇〇〇〇シンカ）"},
+      {hint: "エビにそっくりな形をしているよ！（〇〇◯ソウ）"},
+      {hint: "クリスマスに来るおじいさんと同じ名前だよ！（〇〇◯ンカ）"}
     ];
     // 図鑑1の植物
     const plantList = {
@@ -118,39 +118,39 @@
       .text(hints[0].hint)  // ヒント内容をセット
       .removeClass('show')      // 一旦リセット（連続クリック対応）
       .hide()                   // 一瞬非表示にして
-      .fadeIn(200)              // ふわっと表示
+      .fadeIn(300)              // ふわっと表示
       .addClass('show');        // スタイル反映
     });
     $('#card2').on('click',function(){
       $('#hint')
-      .text(hints[1].hint)  
-      .removeClass('show')      
-      .hide()                   
-      .fadeIn(200)              
+      .text(hints[1].hint)  // ヒント内容をセット
+      .removeClass('show')      // 一旦リセット（連続クリック対応）
+      .hide()                   // 一瞬非表示にして
+      .fadeIn(200)              // ふわっと表示
       .addClass('show');
     });
     $('#card3').on('click',function(){
       $('#hint')
-      .text(hints[2].hint)  
-      .removeClass('show')      
-      .hide()                  
-      .fadeIn(200)              
+      .text(hints[2].hint)  // ヒント内容をセット
+      .removeClass('show')      // 一旦リセット（連続クリック対応）
+      .hide()                   // 一瞬非表示にして
+      .fadeIn(200)              // ふわっと表示
       .addClass('show');
     });
     $('#card4').on('click',function(){
       $('#hint')
-      .text(hints[3].hint)  
-      .removeClass('show')      
-      .hide()                   
-      .fadeIn(200)              
+      .text(hints[3].hint)  // ヒント内容をセット
+      .removeClass('show')      // 一旦リセット（連続クリック対応）
+      .hide()                   // 一瞬非表示にして
+      .fadeIn(200)              // ふわっと表示
       .addClass('show');
     });
     $('#card5').on('click',function(){
       $('#hint')
-      .text(hints[4].hint)  
-      .removeClass('show')     
-      .hide()                   
-      .fadeIn(200)             
+      .text(hints[4].hint)  // ヒント内容をセット
+      .removeClass('show')      // 一旦リセット（連続クリック対応）
+      .hide()                   // 一瞬非表示にして
+      .fadeIn(200)              // ふわっと表示
       .addClass('show');
     });
   });
