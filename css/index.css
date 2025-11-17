@@ -19,7 +19,7 @@ body{
 /*ヘッダー*/
 /*ヘッダーの写真*/
 #page-header{
-    background-image: url(../images/back.png);
+    background-image: url(../images/back.jpg);
     background-size: cover;
     background-position: center bottom;
     height: 200px;
