@@ -4,6 +4,44 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>おめでとう！</title>
 <style>
+table {
+        margin: 30px auto;
+        border-collapse: collapse;
+        width: 80%;
+        max-width: 500px;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: center;
+}
+
+td{
+  color:#555;
+}
+
+th {
+  background-color: #e282a2;
+  color:#e41d60;
+}
+
+.success {
+        color: rgb(231, 25, 97);
+        font-weight: bold;
+}
+
+.fail {
+        color:rgb(2, 139, 238);
+        font-weight: bold;
+}
+
+.empty {
+        background-color: #f2f2f2;
+        color: #555;
+}
  body {
    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
    justify-content: center;
@@ -11,7 +49,7 @@
    height: 100vh;
    margin: 0;
    font-family: "Noto Sans JP", sans-serif;
-   overflow: hidden;
+   /*overflow: hidden;*/
  }
 
 
@@ -19,7 +57,7 @@
    text-align: center;
    color: #fff;
    animation: fadeIn 2s ease-in-out;
-   padding-top: 50%;
+   padding-top: 20%;
  }
 
 
@@ -29,11 +67,17 @@
    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
  }
 
- .btn{
-  display: block;
-  width: 150px;
-  margin:0 auto;
- }
+.btn{
+    display: inline-block;
+    font-size: 1rem;
+    background-color: rgb(123, 204, 218);
+    color: #fff;
+    border-radius: 8px; /*角を丸める*/
+    padding: .75rem 1.5rem;
+}
+.btn:hover{
+    background-color: #0090aa;
+}
 
  p {
    font-size: 1.5em;
@@ -62,88 +106,16 @@
      opacity: 0;
    }
  }
-/*テーブルの装飾*/
- table {
-        margin: 30px auto;
-        border-collapse: collapse;
-        width: 80%;
-        max-width: 500px;
-        background: white;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-th, td {
-        border: 1px solid #ccc;
-        padding: 12px;
-        text-align: center;
-}
-
-th {
-        background-color: #2c6e49;
-        color: white;
-}
-
-.success {
-        color: rgb(231, 25, 97);
-        font-weight: bold;
-}
-
-.fail {
-        color:rgb(2, 139, 238);
-        font-weight: bold;
-}
-
-.empty {
-        background-color: #f2f2f2;
-        color: #555;
-}
 </style>
 </head>
-<body>
-
+<body class="celebration">
 <h1>🎉おめでとう！🎉</h1>
 <p>3問すべて正解しました！</p>
-<div class="celebration">
-<div id="result"></div>
 </div><br>
+<div id="result"></div>
 <button onclick="location.href='index.html'" class="btn">ホームへ</button>
 <script>
-  let eriaName = ["","大温室","合同","庭"];
-  let container = document.getElementById("result");
-  container.innerHTML = ""; // クリア
-
-  let table = document.createElement("table");
-  let header = `<tr><th>エリア</th><th>結果</th></tr>`;
-  table.innerHTML = header;
-
-  for (let i = 1; i < 4; i++){
-   let saved = localStorage.getItem("eria" + i);
-   let row = document.createElement("tr");
-   let cells = "";
-
-   if (saved) {
-       let data = JSON.parse(saved);
-
-       if (data.result && Array.isArray(data.result)) {
-          for(let j = 0; j < data.result.length; j++){
-          if(j === 0){
-              cells += `<span class="${data.result[j] === "正解" ? "success" : "fail"}">${data.result[j]}</span>`;
-          } else {
-              cells += `<span class="${data.result[j] === "正解" ? "success" : "fail"}">,${data.result[j]}</span>`;
-          }
-          }
-          row.innerHTML = `<td>${data.name}エリア</td><td>${cells}</td>`;
-          } else {
-          row.innerHTML = `<td>${eriaName[i]}エリア</td><td class="empty">まだ挑戦中</td>`;
-          }
-       } else {
-       row.innerHTML = `<td>${eriaName[i]}エリア</td><td class="empty">まだ未挑戦</td>`;
-       }
-
-       table.appendChild(row);
-     }
-       container.appendChild(table);
-
+let eriaName = ["","大温室","合同","庭"];
  // 紙吹雪を作る
  for (let i = 0; i < 80; i++) {
    const confetti = document.createElement("div");
@@ -154,9 +126,36 @@ th {
    confetti.style.width = confetti.style.height = Math.random() * 8 + 5 + "px";
    document.body.appendChild(confetti);
  }
+
+let container = document.getElementById("result");
+    container.innerHTML = ""; // クリア
+
+    let table = document.createElement("table");
+    let header = `<tr><th>エリア</th><th>結果</th></tr>`;
+    table.innerHTML = header;
+
+    for (let i = 1; i < 4; i++){
+        let saved = localStorage.getItem("eria" + i);
+        let row = document.createElement("tr");
+        let cells = "";
+        if (saved) {
+            let data = JSON.parse(saved);
+            for(let j = 0; j < data.result.length; j++){
+                if(j===0){
+                    cells += `<span class="${data.result[j] === "正解" ? "success" : "fail"}">${data.result[j]}</span>`;
+                }else{
+                    cells += `<span class="${data.result[j] === "正解" ? "success" : "fail"}">,${data.result[j]}</span>`;
+                }
+            }
+            row.innerHTML=`<td>${data.name}エリア</td><td>${cells}</td>`;
+            } else {
+            row.innerHTML = `<td>${eriaName[i]}エリア</td><td class="empty">まだ未挑戦</td>`;
+            }
+
+        table.appendChild(row);
+        }
+
+        container.appendChild(table);
 </script>
 </body>
 </html>
-
-
-
