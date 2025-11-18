@@ -1,3 +1,6 @@
+h2{
+        color:red;
+}
 @media (min-width: 601px) {
         #map{
                 padding-top: 10%;
