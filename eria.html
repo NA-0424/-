@@ -11,53 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap" rel="stylesheet">
 </head>
 <body>
-    <button onclick = "location.href='zukan1.html'">大温室へ</button>
-    <button onclick = "location.href='zukan2.html'">合同へ</button>
-    <button onclick = "location.href='zukan3.html'">庭へ</button>
-    <button onclick = "result()">クイズ結果一覧を表示</button>
-    <button onclick = "location.href='index.html'"></button>
-    <h2 id="result"></h2>
+    <img src="images/map.png" alt="地図" id="map">
+    <img src="images/blue_pin.png" alt="青のピン" width="100" height="100" onclick="location.href='zukan1.html'" id="blue" >
+    <img src="images/yellow_pin.png" alt="黄色のピン" width="100" height="100" onclick="location.href='zukan2.html'" id="yellow" >
+    <img src="images/pink_pin.png" alt="ピンクのピン" width="100" height="100" onclick="location.href='zukan3.html'" id="pink" >
+    <h2>エリアを選択してね！</h2>
 
     <script>
-        let eriaName = ["","大温室","合同","庭"];
-        
-        function result(){
-            let container = document.getElementById("result");
-            container.innerHTML = ""; // クリア
-
-            let table = document.createElement("table");
-            let header = `<tr><th>エリア</th><th>結果</th></tr>`;
-            table.innerHTML = header;
-
-            for (let i = 1; i < 4; i++){
-                let saved = localStorage.getItem("eria" + i);
-                let row = document.createElement("tr");
-                let cells = "";
-
-                if (saved) {
-                    let data = JSON.parse(saved);
-
-                    if (data.result && Array.isArray(data.result)) {
-                    for(let j = 0; j < data.result.length; j++){
-                    if(j === 0){
-                    cells += `<span class="${data.result[j] === "正解" ? "success" : "fail"}">${data.result[j]}</span>`;
-                    } else {
-                    cells += `<span class="${data.result[j] === "正解" ? "success" : "fail"}">,${data.result[j]}</span>`;
-                    }
-                }
-                row.innerHTML = `<td>${data.name}エリア</td><td>${cells}</td>`;
-                } else {
-                row.innerHTML = `<td>${eriaName[i]}エリア</td><td class="empty">まだ挑戦中</td>`;
-                }
-            } else {
-            row.innerHTML = `<td>${eriaName[i]}エリア</td><td class="empty">まだ未挑戦</td>`;
-            }
-
-            table.appendChild(row);
-        }
-            container.appendChild(table);
-    }
-
         window.onload = function(){
         let flag = 0;
         for(let i = 1; i<4;i++){
@@ -79,8 +39,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
