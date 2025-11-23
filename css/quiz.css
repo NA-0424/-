@@ -6,6 +6,10 @@ body {
   text-align: center; /* ← これで中央寄せ */
 }
 
+table{
+  margin: 30px auto;
+}
+
 #cardArea img {
   max-width: 350px;
   height: auto;
@@ -51,7 +55,7 @@ body {
   font-weight: bold;
 }
 
-#next, #start-btn {
+#next, #start-btn,#eria {
   margin-top: 25px;
   padding: 10px 20px;
   font-size: 1rem;
@@ -62,7 +66,7 @@ body {
   color: white;
 }
 
-#next:hover, #start-btn:hover {
+#next:hover, #start-btn:hover,#eria:hover {
   background-color: #fb8c00;
 }
 
@@ -88,4 +92,12 @@ body {
 .wrong{
   color: rgb(32, 139, 238);
   font-weight: bold;
+}
+
+.endBtn {
+  display:flex;
+  justify-content: center;
+}
+#eria{
+  margin-left:10px;
 }
