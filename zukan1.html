@@ -17,13 +17,12 @@
   <p id="husei" style="color:red;"></p>
   <h2 id="hint"></h2>
 
-  <!-- カード5枚（最初は裏面） -->
+  <!-- 4枚（最初は裏面） -->
   <div>
     <img id="card1" class="card" src="images/kard0.png">
     <img id="card2" class="card" src="images/kard0.png">
     <img id="card3" class="card" src="images/kard0.png">
     <img id="card4" class="card" src="images/kard0.png">
-    <img id="card5" class="card" src="images/kard0.png">
   </div>
 
   <!-- クイズボタン（最初は非表示） -->
@@ -37,7 +36,6 @@
     //ヒントの記入
     const hints= [
       {hint:"🌳✕千（〇〇◯◯ナ）"},
-      {hint: "花の形が白いお家の中から赤いちょうちんが出ているよう！（〇〇◯◯〇〇カズラ）"},
       {hint: "シンカが名前に付く植物だよ（〇〇〇〇シンカ）"},
       {hint: "エビにそっくりな形をしているよ！（〇〇◯ソウ）"},
       {hint: "クリスマスに来るおじいさんと同じ名前だよ！（〇〇◯ンカ）"}
@@ -45,10 +43,9 @@
     // 図鑑1の植物
     const plantList = {
       "モクセンナ": { id: "card1", img: "moku.png" },
-      "ベニゲンペイカズラ": { id: "card2", img: "beni.png" },
-      "フイリソシンカ": { id: "card3", img: "huiri.png" },
-      "コエビソウ": { id: "card4", img: "koebi.png" },
-      "サンタンカ": { id: "card5", img: "santa.png" }
+      "フイリソシンカ": { id: "card2", img: "huiri.png" },
+      "コエビソウ": { id: "card3", img: "koebi.png" },
+      "サンタンカ": { id: "card4", img: "santa.png" }
     };
 
     // カードの裏面
@@ -99,7 +96,7 @@
     //リセットボタン
     function reset(){
         if (confirm("最初からになりますがいいですか？")){
-            for (let i = 1; i < 6; i++ ){
+            for (let i = 1; i < 5; i++ ){
                 const img = document.getElementById("card" + i);
                 img.src = defaultImage;
                 let allFlipped = false;
@@ -145,17 +142,10 @@
       .fadeIn(200)              // ふわっと表示
       .addClass('show');
     });
-    $('#card5').on('click',function(){
-      $('#hint')
-      .text(hints[4].hint)  // ヒント内容をセット
-      .removeClass('show')      // 一旦リセット（連続クリック対応）
-      .hide()                   // 一瞬非表示にして
-      .fadeIn(200)              // ふわっと表示
-      .addClass('show');
-    });
   });
   </script>
   
 </body>
 </html>
+
 
