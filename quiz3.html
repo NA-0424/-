@@ -74,9 +74,11 @@
 
        //問題を表示
        function showQuestion(){
-           document.getElementById("start-btn").style.display = "none";
-           document.getElementById("result").textContent = "";
-           document.getElementById("question").textContent = quiz[index].question;
+            document.getElementById("quizResult").innerHTML = "";
+            document.getElementById("quizResult").style.display = "none";
+            document.getElementById("start-btn").style.display = "none";
+            document.getElementById("result").textContent = "";
+            document.getElementById("question").textContent = quiz[index].question;
 
 
            const choicesDiv = document.getElementById("choices");
@@ -118,14 +120,16 @@
                result.className = "wrong";
                keka.push("不正解");
            }
+           document.getElementById("next").textContent = "次の問題に行く";
            document.getElementById("next").style.display = "inline";
            }
           
        function nextQuestion(){
            index++;
            //写真の無効化
-           document.getElementById("picture").style.display = "none";
-           document.getElementById("picture").src = "";
+            document.getElementById("next").style.display ="none";
+            document.getElementById("picture").style.display = "none";
+            document.getElementById("picture").src = "";
           
            if (index < quiz.length){
                showQuestion();
@@ -162,7 +166,6 @@
    </script>
 </body>
 </html>
-
 
 
 
