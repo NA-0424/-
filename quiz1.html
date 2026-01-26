@@ -46,14 +46,20 @@
             question: "フイリソシンカはどんな匂いがする？",
             choices: ["苦いかおり","すっぱいにおい","あまいかおり","辛いにおい"],
             answer: 2,
-            picture: "images/huiri.png"
+            picture: "images/koebi.png"
         },
         {
             question: "サンタンカは沖縄では別の名前で呼ばれてる？",
             choices: ["別名がある！","名前は一つだよね！"],
             answer: 0,
-            picture: "images/santa.png"
+            picture: "images/koebi.png"
         },
+        {
+            question: "フウリンブッソウゲは花の形が何に似てることから名づけられた？",
+            choices: ["鈴","クラゲ","風鈴","手"],
+            answer: 2,
+            picture: "images/huurin.png"
+        }
             
         ];
         
@@ -140,7 +146,7 @@
         document.getElementById("quizResult").innerHTML = text;
         document.getElementById("quizResult").style.display = "block";
         //nextボタン作成
-        let next = document.getElementById("next")
+        let next = document.getElementById("next");
         next.textContent = "最初からやる";
         next.style.display = "block";
         index = -1;
@@ -153,9 +159,6 @@
     </script>
 </body>
 </html>
-
-
-
 
 
 
