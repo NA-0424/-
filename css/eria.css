@@ -1,3 +1,18 @@
+#goClear {
+  background-color: #2081e2;
+  color: rgb(242, 198, 21);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin: auto;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#goClear {
+  background-color: #3841f1;
+}
 @media (min-width: 601px) {
         #map{
                 padding-top: 10%;
