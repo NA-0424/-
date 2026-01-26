@@ -12,10 +12,14 @@
 </head>
 <body>
     <img src="images/map.png" alt="地図" id="map">
-    <img src="images/yellow_pin.png" alt="黄色のピン" width="100" height="100" onclick="location.href='zukan1.html'" id="yellow" >
-    <img src="images/blue_pin.png" alt="青のピン" width="100" height="100" onclick="location.href='zukan2.html'" id="blue" >
+    <img src="images/blue_pin.png" alt="青のピン" width="100" height="100" onclick="location.href='zukan1.html'" id="blue" >
+    <img src="images/yellow_pin.png" alt="黄色のピン" width="100" height="100" onclick="location.href='zukan2.html'" id="yellow" >
     <img src="images/pink_pin.png" alt="ピンクのピン" width="100" height="100" onclick="location.href='zukan3.html'" id="pink" >
-    <h2>エリアを選択してね！</h2><br><h3>ピンをタップすると図鑑に飛びます</h3>
+    <h2>エリアを選択してね！</h2><br>
+    <h3>ピンをタップすると図鑑に飛びます</h3>
+    <button id="goClear" style="display:none;">
+        クリア画面へ進む
+    </button>
 
     <script>
         window.onload = function(){
@@ -28,12 +32,15 @@
             }
         }
         if(flag === 0){
-            var result = window.confirm("クリア画面に移行しますか？")
-            if(result){
-                window.open('ome.html', '_blank');
+            document.getElementById("goClear").style.display = "block";
             }
         }
-        }
+
+        document.getElementById("goClear").onclick = function () {
+            if (confirm("クリア画面に移行しますか？")) {
+                window.location.href = "ome.html"; 
+            }
+        };
     
 
     </script>
