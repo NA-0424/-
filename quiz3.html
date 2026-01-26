@@ -44,13 +44,13 @@
            picture: "images/ume.png"
        },
        {
-           question: "ユキヤナギは何月のころ新芽が出る？",
-           choices: ["１２月","１月","４月","８月"],
-           answer: 2,
-           picture: "images/yuki.png"
+           question: "サマースノーは枝にとげがない？",
+           choices: ["ある","ない"],
+           answer: 1,
+           picture: "images/summer.png"
        },
        {
-           question: "ソシンロウバイはどのような質感がある？",
+           question: "ロウバイはどのような質感がある？",
            choices: ["着物","紙","ロウ","機械"],
            answer: 2,
            picture: "images/sosin.png"
@@ -62,10 +62,10 @@
            picture: "images/kobisi.png"
        },
        {
-           question: "オガタマノキは何をするときに使われる？",
-           choices: ["車を治すとき","仲直りのとき","人を驚かすとき","神事をするとき"],
+           question: "イヌマキは何に強い？",
+           choices: ["火","虫","雷","水"],
            answer: 3,
-           picture: "images/ogata.png"
+           picture: "images/dog.png"
        }
        ];
       
@@ -125,7 +125,6 @@
            }
           
        function nextQuestion(){
-          document.getElementById("eria").style.display = "none";
            index++;
            //写真の無効化
             document.getElementById("next").style.display ="none";
@@ -167,7 +166,6 @@
    </script>
 </body>
 </html>
-
 
 
 
